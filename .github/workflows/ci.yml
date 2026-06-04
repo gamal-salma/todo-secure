@@ -18,7 +18,7 @@ jobs:
     name: Lint, test y auditoria
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v6
 
       - name: Configurar Node.js
         uses: actions/setup-node@v4
@@ -46,7 +46,7 @@ jobs:
     runs-on: ubuntu-latest
     needs: test
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v6
 
       - name: Construir imagen (sin publicar)
         run: docker build -t todo-secure:ci .
