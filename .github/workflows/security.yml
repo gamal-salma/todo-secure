@@ -131,7 +131,7 @@ jobs:
             sleep 2
           done
       - name: ZAP Baseline (DAST pasivo)
-        uses: zaproxy/action-baseline@v0.12.0
+        uses: zaproxy/action-baseline@v0.15.0
         with:
           target: 'http://localhost:3000'
           fail_action: false
