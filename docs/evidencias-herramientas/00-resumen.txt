@@ -1,0 +1,26 @@
+$ # Evaluacion de seguridad de vulnerable-demo  (Unidad 4)
+
+$ npx eslint -c vulnerable-demo/eslint-demo.config.js vulnerable-demo/*.js     [SAST]
+  3 hallazgos: eval (x2)  +  child_process.exec con entrada no literal
+  -> security/detect-eval-with-expression, security/detect-child-process
+
+$ npm audit                                                                    [SCA]
+  15 vulnerabilities (4 low, 1 moderate, 8 high, 2 critical)
+  deps: express@4.16.0, express-session@1.15.0, lodash@4.17.11,
+        minimist@1.2.0, marked@0.3.6, axios@0.21.1
+
+$ gitleaks dir vulnerable-demo --config security/.gitleaks.toml -v             [SECRETOS]
+  leaks found: 2
+  - github-pat        en vulnerable-demo/Dockerfile:22
+  - stripe-access-token en vulnerable-demo/insecure-app.js:22
+
+$ trivy config vulnerable-demo/                                                [IaC / CONTENEDOR]
+  Failures: 4 (LOW: 1, MEDIUM: 1, HIGH: 1, CRITICAL: 1)
+  - CRITICAL DS-0031: secreto expuesto en ENV "API_TOKEN"
+  - HIGH     DS-0002: no se define USER no-root
+  - MEDIUM   DS-0001: imagen 'node:latest' sin fijar version
+
+$ # En el pipeline (.github/workflows) ademas:
+  Semgrep + CodeQL (SAST)  ->  SQLi, XSS por innerHTML, secretos
+  OWASP ZAP (DAST)         ->  cabeceras/cookies inseguras
+  Dependabot               ->  alertas de las dependencias vulnerables

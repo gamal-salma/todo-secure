@@ -1,0 +1,144 @@
+$ npm audit
+# npm audit report
+
+axios  <=0.31.1
+Severity: high
+Axios Cross-Site Request Forgery Vulnerability - https://github.com/advisories/GHSA-wf5p-g6vw-rhxx
+axios Inefficient Regular Expression Complexity vulnerability - https://github.com/advisories/GHSA-cph5-m8f7-6c5x
+axios Requests Vulnerable To Possible SSRF and Credential Leakage via Absolute URL - https://github.com/advisories/GHSA-jr5f-v2jv-69x6
+Axios has a NO_PROXY Hostname Normalization Bypass that Leads to SSRF - https://github.com/advisories/GHSA-3p68-rc4w-qgx5
+Axios: Authentication Bypass via Prototype Pollution Gadget in `validateStatus` Merge Strategy - https://github.com/advisories/GHSA-w9j2-pvgh-6h63
+Axios: Incomplete Fix for CVE-2025-62718 — NO_PROXY Protection Bypassed via RFC 1122 Loopback Subnet (127.0.0.0/8) in Axios 1.15.0 - https://github.com/advisories/GHSA-pmwg-cvhr-8vh7
+Axios: Null Byte Injection via Reverse-Encoding in AxiosURLSearchParams - https://github.com/advisories/GHSA-xhjh-pmcv-23jw
+Axios: no_proxy bypass via IP alias allows SSRF - https://github.com/advisories/GHSA-m7pr-hjqh-92cm
+Axios: unbounded recursion in toFormData causes DoS via deeply nested request data - https://github.com/advisories/GHSA-62hf-57xw-28j9
+Axios' HTTP adapter-streamed uploads bypass maxBodyLength when maxRedirects: 0 - https://github.com/advisories/GHSA-5c9x-8gcm-mpgx
+Axios: HTTP adapter streamed responses bypass maxContentLength - https://github.com/advisories/GHSA-vf2m-468p-8v99
+Axios: Prototype Pollution Gadgets - Response Tampering, Data Exfiltration, and Request Hijacking - https://github.com/advisories/GHSA-pf86-5x62-jrwf
+Axios: Header Injection via Prototype Pollution - https://github.com/advisories/GHSA-6chq-wfr3-2hj9
+Axios: XSRF Token Cross-Origin Leakage via Prototype Pollution Gadget in `withXSRFToken` Boolean Coercion - https://github.com/advisories/GHSA-xx6v-rp6x-q39c
+Axios is Vulnerable to Denial of Service via __proto__ Key in mergeConfig - https://github.com/advisories/GHSA-43fc-jf86-j433
+Axios has Unrestricted Cloud Metadata Exfiltration via Header Injection Chain - https://github.com/advisories/GHSA-fvcv-3m26-pcqx
+axios's shouldBypassProxy does not recognize IPv4-mapped IPv6 addresses, allowing NO_PROXY bypass (incomplete fix for CVE-2025-62718) - https://github.com/advisories/GHSA-pjwm-pj3p-43mv
+axios has DoS & Header Injection via Prototype Pollution Read-Side Gadgets in axios merge functions - https://github.com/advisories/GHSA-898c-q2cr-xwhg
+axios Vulnerable to Credential Theft and Response Hijacking via Prototype Pollution Gadget in Config Merge - https://github.com/advisories/GHSA-3g43-6gmg-66jw
+fix available via `npm audit fix --force`
+Will install axios@0.21.4, which is outside the stated dependency range
+node_modules/axios
+
+body-parser  <=1.20.2
+Severity: high
+body-parser vulnerable to denial of service when url encoding is enabled - https://github.com/advisories/GHSA-qwcr-r2fm-qrc7
+Depends on vulnerable versions of qs
+fix available via `npm audit fix --force`
+Will install express@4.22.2, which is outside the stated dependency range
+node_modules/body-parser
+  express  <=4.21.0 || 5.0.0-alpha.1 - 5.0.0
+  Depends on vulnerable versions of body-parser
+  Depends on vulnerable versions of cookie
+  Depends on vulnerable versions of path-to-regexp
+  Depends on vulnerable versions of qs
+  Depends on vulnerable versions of send
+  Depends on vulnerable versions of serve-static
+  node_modules/express
+
+cookie  <0.7.0
+cookie accepts cookie name, path, and domain with out of bounds characters - https://github.com/advisories/GHSA-pxg6-pf52-xh8x
+fix available via `npm audit fix --force`
+Will install express@4.22.2, which is outside the stated dependency range
+node_modules/cookie
+  express-session  1.0.1 - 1.18.1
+  Depends on vulnerable versions of cookie
+  Depends on vulnerable versions of debug
+  Depends on vulnerable versions of on-headers
+  node_modules/express-session
+
+debug  <=2.6.8
+Severity: high
+debug Inefficient Regular Expression Complexity vulnerability - https://github.com/advisories/GHSA-9vvw-cc9w-f27h
+Regular Expression Denial of Service in debug - https://github.com/advisories/GHSA-gxpj-cx7g-858c
+Depends on vulnerable versions of ms
+fix available via `npm audit fix --force`
+Will install express-session@1.19.0, which is outside the stated dependency range
+node_modules/express-session/node_modules/debug
+
+
+lodash  <=4.17.23
+Severity: critical
+Command Injection in lodash - https://github.com/advisories/GHSA-35jh-r3h4-6jhm
+Prototype Pollution in lodash - https://github.com/advisories/GHSA-jf85-cpcp-j695
+Prototype Pollution in lodash - https://github.com/advisories/GHSA-p6mc-m468-83gw
+Regular Expression Denial of Service (ReDoS) in lodash - https://github.com/advisories/GHSA-29mw-wpgm-hmr9
+Lodash has Prototype Pollution Vulnerability in `_.unset` and `_.omit` functions - https://github.com/advisories/GHSA-xxjr-mmjv-4gpg
+lodash vulnerable to Code Injection via `_.template` imports key names - https://github.com/advisories/GHSA-r5fr-rjxr-66jc
+lodash vulnerable to Prototype Pollution via array path bypass in `_.unset` and `_.omit` - https://github.com/advisories/GHSA-f23m-r3pf-42rh
+fix available via `npm audit fix --force`
+Will install lodash@4.18.1, which is outside the stated dependency range
+node_modules/lodash
+
+marked  <=4.0.9
+Severity: high
+Marked vulnerable to XSS from data URIs - https://github.com/advisories/GHSA-7px7-7xjx-hxm8
+Regular Expression Denial of Service in marked - https://github.com/advisories/GHSA-x5pg-88wf-qq4p
+Inefficient Regular Expression Complexity in marked - https://github.com/advisories/GHSA-rrrm-qjm4-v8hf
+Inefficient Regular Expression Complexity in marked - https://github.com/advisories/GHSA-5v2h-r2cx-5xgj
+Marked allows Regular Expression Denial of Service (ReDoS) attacks - https://github.com/advisories/GHSA-p9wx-2529-fp83
+fix available via `npm audit fix --force`
+Will install marked@0.3.19, which is outside the stated dependency range
+node_modules/marked
+
+minimist  1.0.0 - 1.2.5
+Severity: critical
+Prototype Pollution in minimist - https://github.com/advisories/GHSA-vh95-rmgr-6w4m
+Prototype Pollution in minimist - https://github.com/advisories/GHSA-xvch-5gv4-984h
+fix available via `npm audit fix --force`
+Will install minimist@1.2.8, which is outside the stated dependency range
+node_modules/minimist
+
+ms  <2.0.0
+Severity: moderate
+Vercel ms Inefficient Regular Expression Complexity vulnerability - https://github.com/advisories/GHSA-w9mr-4mfr-499f
+fix available via `npm audit fix --force`
+Will install express-session@1.19.0, which is outside the stated dependency range
+node_modules/express-session/node_modules/ms
+
+on-headers  <1.1.0
+on-headers is vulnerable to http response header manipulation - https://github.com/advisories/GHSA-76c9-3jph-rj3q
+fix available via `npm audit fix --force`
+Will install express-session@1.19.0, which is outside the stated dependency range
+node_modules/on-headers
+
+path-to-regexp  <=0.1.12
+Severity: high
+path-to-regexp outputs backtracking regular expressions - https://github.com/advisories/GHSA-9wv6-86v2-598j
+path-to-regexp contains a ReDoS - https://github.com/advisories/GHSA-rhx6-c78j-4q9w
+path-to-regexp vulnerable to Regular Expression Denial of Service via multiple route parameters - https://github.com/advisories/GHSA-37ch-88jc-xwx2
+fix available via `npm audit fix --force`
+Will install express@4.22.2, which is outside the stated dependency range
+node_modules/path-to-regexp
+
+qs  <=6.14.0
+Severity: high
+qs vulnerable to Prototype Pollution - https://github.com/advisories/GHSA-hrpp-h998-j3pp
+qs's arrayLimit bypass in its bracket notation allows DoS via memory exhaustion - https://github.com/advisories/GHSA-6rw7-vpxm-498p
+fix available via `npm audit fix --force`
+Will install express@4.22.2, which is outside the stated dependency range
+node_modules/qs
+
+send  <0.19.0
+send vulnerable to template injection that can lead to XSS - https://github.com/advisories/GHSA-m6fv-jmcg-4jfg
+fix available via `npm audit fix --force`
+Will install express@4.22.2, which is outside the stated dependency range
+node_modules/send
+  serve-static  <=1.16.0
+  Depends on vulnerable versions of send
+  node_modules/serve-static
+
+
+15 vulnerabilities (4 low, 1 moderate, 8 high, 2 critical)
+
+To address issues that do not require attention, run:
+  npm audit fix
+
+To address all issues, run:
+  npm audit fix --force

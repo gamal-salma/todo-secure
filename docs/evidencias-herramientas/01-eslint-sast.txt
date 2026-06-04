@@ -1,0 +1,12 @@
+$ npx eslint -c vulnerable-demo/eslint-demo.config.js vulnerable-demo/insecure-app.js vulnerable-demo/insecure-frontend.js
+
+C:\Users\SalmaGamalSolvia\source\repo\Metodologias-de-Desarollo-Seguro\Actividad1\Actividad3\Actividad3_Entrega_SalmaGamal\todo-secure\vulnerable-demo\insecure-app.js
+  40:18  warning  eval with argument of type MemberExpression                 security/detect-eval-with-expression
+  46:3   warning  Found child_process.exec() with non Literal first argument  security/detect-child-process
+
+C:\Users\SalmaGamalSolvia\source\repo\Metodologias-de-Desarollo-Seguro\Actividad1\Actividad3\Actividad3_Entrega_SalmaGamal\todo-secure\vulnerable-demo\insecure-frontend.js
+  19:3  warning  eval with argument of type Identifier  security/detect-eval-with-expression
+
+✖ 3 problems (0 errors, 3 warnings)
+
+exit code: 0
