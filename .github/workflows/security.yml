@@ -62,7 +62,7 @@ jobs:
             --config p/nodejs \
             --config security/semgrep-todo.yml \
             --sarif --output semgrep.sarif src/
-      - uses: github/codeql-action/upload-sarif@v3
+      - uses: github/codeql-action/upload-sarif@v4
         if: always()
         with:
           sarif_file: semgrep.sarif
