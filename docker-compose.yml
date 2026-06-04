@@ -1,0 +1,43 @@
+# docker-compose del to-do seguro.
+#
+# Decisiones de seguridad (S-SDLC: Despliegue):
+#  * Los secretos NO se escriben aqui: se leen de un fichero .env (ver .env.example),
+#    que esta excluido del repositorio por .gitignore (NIST SSDF PS.1 / PW.5).
+#  * security_opt: no-new-privileges y read_only rootfs reducen el impacto de un
+#    compromiso del contenedor (minimo privilegio / defensa en profundidad).
+#  * cap_drop: ALL elimina todas las capacidades de Linux innecesarias.
+#  * El volumen persiste solo el directorio de datos (SQLite), no todo el contenedor.
+
+services:
+  app:
+    build: .
+    image: todo-secure:1.0.0
+    container_name: todo-secure
+    restart: unless-stopped
+    env_file:
+      - .env
+    environment:
+      NODE_ENV: production
+      PORT: 3000
+      DATABASE_PATH: /app/data/todo.db
+    ports:
+      - "3000:3000"
+    volumes:
+      - todo_data:/app/data
+    read_only: true
+    tmpfs:
+      - /tmp
+    security_opt:
+      - no-new-privileges:true
+    cap_drop:
+      - ALL
+    healthcheck:
+      test: ["CMD", "node", "-e", "fetch('http://127.0.0.1:3000/api/health').then(r=>process.exit(r.ok?0:1)).catch(()=>process.exit(1))"]
+      interval: 30s
+      timeout: 3s
+      retries: 3
+      start_period: 5s
+
+volumes:
+  todo_data:
+    driver: local

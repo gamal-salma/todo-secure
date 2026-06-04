@@ -1,0 +1,24 @@
+$ curl -I http://localhost:3070/
+HTTP/1.1 200 OK
+Content-Security-Policy: default-src 'self';script-src 'self';style-src 'self';img-src 'self' data:;connect-src 'self';object-src 'none';base-uri 'self';form-action 'self';frame-ancestors 'none';font-src 'self' https: data:;script-src-attr 'none'
+Cross-Origin-Opener-Policy: same-origin
+Cross-Origin-Resource-Policy: same-origin
+Origin-Agent-Cluster: ?1
+Referrer-Policy: no-referrer
+X-Content-Type-Options: nosniff
+X-DNS-Prefetch-Control: off
+X-Download-Options: noopen
+X-Frame-Options: SAMEORIGIN
+X-Permitted-Cross-Domain-Policies: none
+X-XSS-Protection: 0
+Accept-Ranges: bytes
+Cache-Control: public, max-age=0
+Last-Modified: Wed, 03 Jun 2026 14:57:44 GMT
+ETag: W/"83e-19e8dfd8bbf"
+Content-Type: text/html; charset=UTF-8
+Content-Length: 2110
+Set-Cookie: todo.sid=s%3AEY2M9i2AfZHZlU8dlWEd38BanGTlrgob.C7jh%2B3NHAnIYqX%2BBmxnTdxF2it95%2FOXCL63%2FYxelpbQ; Path=/; Expires=Thu, 04 Jun 2026 09:56:06 GMT; HttpOnly; SameSite=Lax
+Date: Thu, 04 Jun 2026 09:26:06 GMT
+Connection: keep-alive
+Keep-Alive: timeout=5
+

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="referrer" content="no-referrer" />
+    <title>To-Do Seguro</title>
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <header class="topbar">
+      <h1>To-Do <span class="accent">Seguro</span></h1>
+      <div id="userArea" class="user-area hidden">
+        <span id="userLabel"></span>
+        <button id="logoutBtn" class="btn-ghost">Cerrar sesion</button>
+      </div>
+    </header>
+
+    <main>
+      <!-- Vista de autenticacion -->
+      <section id="authView" class="card">
+        <div class="tabs">
+          <button id="tabLogin" class="tab active">Entrar</button>
+          <button id="tabRegister" class="tab">Crear cuenta</button>
+        </div>
+        <form id="authForm" autocomplete="off">
+          <label for="username">Usuario</label>
+          <input id="username" name="username" type="text" minlength="3" maxlength="32" required />
+          <label for="password">Contrasena</label>
+          <input id="password" name="password" type="password" minlength="8" maxlength="128" required />
+          <button id="authSubmit" type="submit" class="btn-primary">Entrar</button>
+          <p id="authError" class="error" role="alert"></p>
+        </form>
+      </section>
+
+      <!-- Vista de tareas -->
+      <section id="todoView" class="card hidden">
+        <form id="todoForm" autocomplete="off">
+          <input id="todoTitle" type="text" maxlength="280" placeholder="Nueva tarea..." required />
+          <button type="submit" class="btn-primary">Anadir</button>
+        </form>
+        <ul id="todoList" class="todo-list"></ul>
+        <p id="todoEmpty" class="muted">No tienes tareas todavia.</p>
+      </section>
+    </main>
+
+    <footer class="foot">
+      <small>Metodologias de Desarrollo Seguro &middot; Universidad Europea de Madrid</small>
+    </footer>
+
+    <!-- JS externo (no inline) para respetar la Content-Security-Policy estricta -->
+    <script src="/app.js"></script>
+  </body>
+</html>

@@ -1,0 +1,21 @@
+# Reduce el contexto de build y EVITA filtrar secretos/datos a la imagen.
+node_modules
+npm-debug.log
+.env
+.env.*
+data
+*.db
+*.db-wal
+*.db-shm
+coverage
+.nyc_output
+.git
+.github
+docs
+tests
+*.md
+!README.md
+.gitignore
+.dockerignore
+.vscode
+.idea

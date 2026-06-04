@@ -1,0 +1,32 @@
+$ npm test
+> todo-secure@1.0.0 test
+> node --test tests/*.test.js
+▶ Autenticacion
+  ✔ registro + login correcto devuelve el usuario (424.6038ms)
+  ✔ login con contrasena incorrecta devuelve 401 generico (384.1326ms)
+  ✔ no se puede registrar el mismo usuario dos veces (199.9021ms)
+  ✔ valida la fortaleza minima de la contrasena (>=8) (5.1659ms)
+  ✔ logout cierra la sesion (385.3628ms)
+✔ Autenticacion (1399.9409ms)
+▶ Seguridad
+  ✔ [A05] Cabeceras de seguridad presentes (CSP, X-Content-Type-Options, etc.) (21.5209ms)
+  ✔ [A01] Acceso a la API sin sesion devuelve 401 (8.429ms)
+  ✔ [A01-IDOR] Un usuario no puede ver ni modificar tareas de otro (794.1378ms)
+  ✔ [A01-CSRF] Peticion que cambia estado sin token CSRF es rechazada (403) (387.3811ms)
+  ✔ [A03-SQLi] Una inyeccion SQL en el login no rompe ni autentica (381.5642ms)
+  ✔ [A03-XSS] El payload XSS se almacena como texto y se devuelve literal (sin ejecutar) (383.1748ms)
+  ✔ [A07] El rate limiting protege el endpoint de login (19.7476ms)
+✔ Seguridad (1996.7643ms)
+▶ CRUD de tareas
+  ✔ crea, lista, actualiza y borra una tarea (434.8222ms)
+  ✔ rechaza titulos vacios o demasiado largos (389.8089ms)
+  ✔ devuelve 404 al actualizar una tarea inexistente (386.848ms)
+✔ CRUD de tareas (1212.1211ms)
+ℹ tests 15
+ℹ suites 3
+ℹ pass 15
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 2236.1775

@@ -1,0 +1,2 @@
+# Este directorio almacena la base de datos SQLite en tiempo de ejecucion.
+# Su contenido esta excluido del control de versiones (ver .gitignore).

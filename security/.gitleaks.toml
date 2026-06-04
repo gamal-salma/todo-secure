@@ -1,0 +1,25 @@
+# Configuracion de gitleaks para el escaneo de secretos en el repositorio.
+# Uso:  gitleaks detect --source . --config security/.gitleaks.toml
+#
+# Decision de seguridad (S-SDLC: Implementacion / NIST SSDF PS.1):
+#  El objetivo es impedir que secretos reales (SESSION_SECRET, claves, tokens) acaben
+#  versionados. Se parte del conjunto de reglas por defecto de gitleaks y se ajusta la
+#  lista de exclusiones a este proyecto.
+
+title = "todo-secure gitleaks config"
+
+[extend]
+# Hereda el conjunto de reglas base mantenido por gitleaks.
+useDefault = true
+
+[allowlist]
+description = "Falsos positivos conocidos en este repositorio"
+paths = [
+  '''\.env\.example$''',          # plantilla con valores de ejemplo, no secretos reales
+  '''package-lock\.json$''',      # hashes de integridad, no credenciales
+  '''docs/diagrams/.*''',         # ficheros de diagramas
+]
+regexes = [
+  '''CHANGE_ME_genera_un_secreto_aleatorio_de_al_menos_32_caracteres''',
+  '''\$2a\$12\$0000000000000000000000000000000000000000000000000000''', # hash ficticio anti-timing
+]

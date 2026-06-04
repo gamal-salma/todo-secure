@@ -1,0 +1,36 @@
+{
+  "name": "todo-secure",
+  "version": "1.0.0",
+  "description": "Aplicacion web to-do contenerizada desarrollada siguiendo el S-SDLC (Metodologias de Desarrollo Seguro - UEM)",
+  "license": "MIT",
+  "author": "Salma Gamal",
+  "type": "commonjs",
+  "main": "src/server.js",
+  "engines": {
+    "node": ">=22.5.0"
+  },
+  "scripts": {
+    "start": "node src/server.js",
+    "dev": "node --watch src/server.js",
+    "test": "node --test tests/*.test.js",
+    "test:coverage": "node --test --experimental-test-coverage tests/*.test.js",
+    "test:security": "node --test tests/security.test.js",
+    "audit": "npm audit --omit=dev --audit-level=high",
+    "lint": "node --check src/server.js && node --check src/app.js"
+  },
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "dotenv": "^16.4.5",
+    "express": "^4.21.2",
+    "express-rate-limit": "^7.4.1",
+    "express-session": "^1.18.1",
+    "express-validator": "^7.2.0",
+    "helmet": "^8.0.0",
+    "pino": "^9.5.0",
+    "pino-http": "^10.3.0"
+  },
+  "devDependencies": {
+    "pino-pretty": "^13.0.0",
+    "supertest": "^7.0.0"
+  }
+}

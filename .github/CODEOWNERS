@@ -1,0 +1,7 @@
+# Propietarios del codigo: toda PR requiere su revision (S-SDLC: PW.7 revision de codigo).
+* @salma-gamal
+
+# La logica de seguridad exige revision explicita.
+/src/middleware/   @salma-gamal
+/security/         @salma-gamal
+/docs/threat-model.md  @salma-gamal

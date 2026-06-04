@@ -1,0 +1,30 @@
+# Dependencias
+node_modules/
+
+# Secretos y configuracion local (NUNCA versionar) -> NIST SSDF PS.1 / PW.5
+.env
+.env.*
+!.env.example
+
+# Datos de la aplicacion (base de datos SQLite y ficheros WAL)
+data/*
+!data/.gitkeep
+*.db
+*.db-wal
+*.db-shm
+*.sqlite
+
+# Logs
+*.log
+logs/
+
+# Cobertura y artefactos de test
+coverage/
+.nyc_output/
+
+# Sistema operativo / editor
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+*.swp
