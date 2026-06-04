@@ -1,0 +1,19 @@
+{
+  "name": "todo-insecure-demo",
+  "version": "0.0.0-INSECURE",
+  "private": true,
+  "description": "App deliberadamente vulnerable para la Unidad 4. NO DESPLEGAR.",
+  "main": "insecure-app.js",
+  "scripts": {
+    "audit": "npm audit"
+  },
+  "comment_dependencias": "Versiones FIJADAS con vulnerabilidades CONOCIDAS para que npm audit / Trivy / Dependabot generen alertas.",
+  "dependencies": {
+    "express": "4.16.0",
+    "express-session": "1.15.0",
+    "lodash": "4.17.11",
+    "minimist": "1.2.0",
+    "marked": "0.3.6",
+    "axios": "0.21.1"
+  }
+}
