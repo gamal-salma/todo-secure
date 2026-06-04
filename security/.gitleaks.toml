@@ -15,9 +15,12 @@ useDefault = true
 [allowlist]
 description = "Falsos positivos conocidos en este repositorio"
 paths = [
+  '''node_modules''',             # dependencias de terceros (no versionadas; ejemplos en sus READMEs)
   '''\.env\.example$''',          # plantilla con valores de ejemplo, no secretos reales
   '''package-lock\.json$''',      # hashes de integridad, no credenciales
-  '''docs/diagrams/.*''',         # ficheros de diagramas
+  '''sbom\.cyclonedx\.json$''',   # hashes de integridad del SBOM
+  '''docs[\\/]diagrams[\\/]''',   # ficheros de diagramas
+  '''docs[\\/]evidencias''',      # capturas/salidas de evidencias (pueden contener ejemplos)
 ]
 regexes = [
   '''CHANGE_ME_genera_un_secreto_aleatorio_de_al_menos_32_caracteres''',

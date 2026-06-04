@@ -1,0 +1,49 @@
+# Reglas Semgrep PROPIAS, adaptadas a la app to-do.
+# Codifican como politica los antipatrones que esta aplicacion evita a proposito.
+# Sobre la version segura NO deben producir hallazgos; sirven de red de seguridad
+# para futuras contribuciones y para la version vulnerable de la Unidad 5.
+
+rules:
+  - id: todo-no-innerhtml
+    languages: [javascript]
+    severity: WARNING
+    message: >
+      Uso de innerHTML/outerHTML: riesgo de XSS. Renderiza texto con textContent
+      o escapa la salida (OWASP A03; ASVS V5.3.3).
+    metadata:
+      owasp: "A03:2021 - Injection"
+      cwe: "CWE-79"
+    patterns:
+      - pattern-either:
+          - pattern: $EL.innerHTML = $X
+          - pattern: $EL.outerHTML = $X
+
+  - id: todo-sql-string-building
+    languages: [javascript]
+    severity: ERROR
+    message: >
+      Consulta SQL construida por concatenacion o interpolacion: riesgo de SQL
+      injection. Usa sentencias preparadas con parametros '?' (OWASP A03; ASVS V5.3.4).
+    metadata:
+      owasp: "A03:2021 - Injection"
+      cwe: "CWE-89"
+    patterns:
+      - pattern-either:
+          - pattern: $DB.prepare("..." + $X)
+          - pattern: $DB.exec("..." + $X)
+          - pattern: $DB.run("..." + $X)
+
+  - id: todo-hardcoded-credential
+    languages: [javascript]
+    severity: ERROR
+    message: >
+      Posible credencial/secreto hardcodeado. Los secretos deben leerse de variables
+      de entorno, nunca incrustarse en el codigo (NIST SSDF PS.1; OWASP A05).
+    metadata:
+      owasp: "A05:2021 - Security Misconfiguration"
+      cwe: "CWE-798"
+    patterns:
+      - pattern-either:
+          - pattern: |
+              $X = { ..., secret: "...", ... }
+          - pattern: password = "..."

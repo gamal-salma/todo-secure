@@ -25,12 +25,16 @@ function init() {
 
   // Asegura que el directorio del fichero de BD existe (p. ej. ./data o /app/data).
   const dir = path.dirname(path.resolve(config.databasePath));
+  // Ruta derivada de configuracion/entorno controlado, no de entrada de usuario.
+  // eslint-disable-next-line security/detect-non-literal-fs-filename
   fs.mkdirSync(dir, { recursive: true });
 
   db = new DatabaseSync(config.databasePath);
   db.exec('PRAGMA journal_mode = WAL;');
   db.exec('PRAGMA foreign_keys = ON;');
 
+  // Ruta fija relativa al modulo (no entrada de usuario).
+  // eslint-disable-next-line security/detect-non-literal-fs-filename
   const schema = fs.readFileSync(path.join(__dirname, 'schema.sql'), 'utf8');
   db.exec(schema);
 

@@ -16,7 +16,7 @@ function notFound(req, res) {
   res.status(404).json({ error: 'Recurso no encontrado' });
 }
 
-// eslint-disable-next-line no-unused-vars
+// El 4o parametro (next) es obligatorio para que Express lo trate como manejador de errores.
 function errorHandler(err, req, res, next) {
   const status = err.status || 500;
   if (status >= 500) {

@@ -1,0 +1,18 @@
+$ npm audit --omit=dev --audit-level=high
+found 0 vulnerabilities
+
+$ npm run lint   (eslint + eslint-plugin-security, src/ tests/)
+(sin hallazgos)   exit code: 0
+
+$ gitleaks dir . --config security/.gitleaks.toml
+INF no leaks found   exit code: 0
+
+$ npm sbom --sbom-format cyclonedx --omit=dev > security/sbom.cyclonedx.json
+SBOM CycloneDX generado: 68 componentes
+
+Herramientas configuradas ADEMAS en el pipeline CI (.github/workflows/):
+  - Semgrep (SAST)            -> security.yml  (motor solo Linux/macOS)
+  - CodeQL  (SAST GitHub)     -> codeql.yml
+  - Trivy   (contenedor/IaC)  -> security.yml
+  - OWASP ZAP (DAST)          -> security.yml
+  - Dependabot (SCA continuo) -> dependabot.yml

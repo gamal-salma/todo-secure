@@ -1,0 +1,31 @@
+name: CodeQL
+
+# SAST nativo de GitHub (gratuito en repos publicos). Analiza el codigo JavaScript
+# en busca de patrones vulnerables y publica los hallazgos en la pestana
+# "Security > Code scanning" del repositorio (NIST SSDF PW.8 / RV.1).
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+  schedule:
+    - cron: '23 3 * * 1'   # analisis programado semanal
+
+permissions:
+  contents: read
+  security-events: write
+
+jobs:
+  analyze:
+    name: Analyze (javascript)
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Inicializar CodeQL
+        uses: github/codeql-action/init@v3
+        with:
+          languages: javascript-typescript
+          queries: security-extended
+      - name: Analizar
+        uses: github/codeql-action/analyze@v3

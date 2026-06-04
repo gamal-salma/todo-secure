@@ -180,13 +180,13 @@ def diagram_structure():
         ("tests/  — pruebas",
          "auth.test.js<br/>todos.test.js<br/>security.test.js<br/>helpers.js"),
         ("docs/  — documentación",
-         "threat-model.md (STRIDE)<br/>s-sdlc.md · architecture.md<br/>security-requirements.md<br/>diagrams/ (.drawio + .png)"),
+         "threat-model.md (STRIDE)<br/>s-sdlc.md · devsecops.md<br/>architecture.md · security-requirements.md<br/>diagrams/ · evidencias/ · evidencias-devsecops/"),
         ("security/  — gobierno seg.",
-         "secure-coding-guidelines.md<br/>nist-ssdf-mapping.md<br/>owasp-asvs-mapping.md<br/>.gitleaks.toml"),
-        (".github/  — CI/CD",
-         "workflows/ci.yml<br/>dependabot.yml<br/>CODEOWNERS<br/>pull_request_template.md"),
-        ("raíz  — contenedor + gobierno",
-         "Dockerfile · docker-compose.yml<br/>.dockerignore · .gitignore<br/>.env.example · package.json<br/>README · SECURITY · CONTRIBUTING · LICENSE"),
+         "secure-coding-guidelines.md<br/>nist-ssdf-mapping.md · owasp-asvs-mapping.md<br/>.gitleaks.toml · semgrep-todo.yml<br/>sbom.cyclonedx.json"),
+        (".github/  — CI/CD DevSecOps",
+         "workflows/ci.yml<br/>workflows/security.yml · codeql.yml<br/>dependabot.yml · CODEOWNERS<br/>pull_request_template.md"),
+        ("raíz  — contenedor + DevSecOps",
+         "Dockerfile · docker-compose.yml<br/>.pre-commit-config.yaml · eslint.config.js<br/>.env.example · package.json<br/>README · SECURITY · CONTRIBUTING · LICENSE"),
     ]
     x0, y0, w, h, gx, gy = 80, 200, 320, 150, 60, 60
     for i, (title, content) in enumerate(nodes):

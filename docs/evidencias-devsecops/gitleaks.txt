@@ -1,0 +1,11 @@
+$ gitleaks dir . --config security/.gitleaks.toml
+
+    ○
+    │╲
+    │ ○
+    ○ ░
+    ░    gitleaks
+
+2:19PM INF scan completed in 164ms
+2:19PM INF no leaks found
+exit code: 0

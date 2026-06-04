@@ -1,7 +1,7 @@
 {
   "name": "todo-secure",
-  "version": "1.0.0",
-  "description": "Aplicacion web to-do contenerizada desarrollada siguiendo el S-SDLC (Metodologias de Desarrollo Seguro - UEM)",
+  "version": "2.0.0",
+  "description": "Aplicacion web to-do contenerizada con S-SDLC y DevSecOps (Metodologias de Desarrollo Seguro - UEM)",
   "license": "MIT",
   "author": "Salma Gamal",
   "type": "commonjs",
@@ -16,7 +16,9 @@
     "test:coverage": "node --test --experimental-test-coverage tests/*.test.js",
     "test:security": "node --test tests/security.test.js",
     "audit": "npm audit --omit=dev --audit-level=high",
-    "lint": "node --check src/server.js && node --check src/app.js"
+    "lint": "eslint src/ tests/",
+    "lint:syntax": "node --check src/server.js && node --check src/app.js",
+    "sbom": "npm sbom --sbom-format cyclonedx --omit=dev > security/sbom.cyclonedx.json"
   },
   "dependencies": {
     "bcryptjs": "^2.4.3",
@@ -30,6 +32,8 @@
     "pino-http": "^10.3.0"
   },
   "devDependencies": {
+    "eslint": "^9.39.4",
+    "eslint-plugin-security": "^3.0.1",
     "pino-pretty": "^13.0.0",
     "supertest": "^7.0.0"
   }

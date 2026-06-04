@@ -35,7 +35,6 @@ if (isProd) {
 } else if (!sessionSecret) {
   // Aviso explicito: secreto efimero solo valido para desarrollo.
   sessionSecret = require('node:crypto').randomBytes(32).toString('hex');
-  // eslint-disable-next-line no-console
   console.warn('[config] SESSION_SECRET no definido: usando un secreto efimero (SOLO desarrollo).');
 }
 
