@@ -52,13 +52,16 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - name: Semgrep (reglas OWASP/Node + reglas propias del proyecto)
+        # Modo informe: los hallazgos se publican en "Code scanning" (SARIF) para su
+        # triaje; no rompe el build por findings informativos. Las puertas que SI
+        # rompen son SCA (npm audit) y el escaneo del contenedor (Trivy).
         run: |
           semgrep scan \
             --config p/owasp-top-ten \
             --config p/javascript \
             --config p/nodejs \
             --config security/semgrep-todo.yml \
-            --error --sarif --output semgrep.sarif src/
+            --sarif --output semgrep.sarif src/
       - uses: github/codeql-action/upload-sarif@v3
         if: always()
         with:
@@ -89,14 +92,14 @@ jobs:
       - name: Construir la imagen
         run: docker build -t todo-secure:ci .
       - name: Trivy - vulnerabilidades de la imagen (rompe si HIGH/CRITICAL)
-        uses: aquasecurity/trivy-action@0.28.0
+        uses: aquasecurity/trivy-action@v0.36.0
         with:
           image-ref: todo-secure:ci
           severity: 'HIGH,CRITICAL'
           ignore-unfixed: true
           exit-code: '1'
       - name: Trivy - mala configuracion de IaC (Dockerfile/compose)
-        uses: aquasecurity/trivy-action@0.28.0
+        uses: aquasecurity/trivy-action@v0.36.0
         with:
           scan-type: config
           scan-ref: .

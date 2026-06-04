@@ -43,7 +43,4 @@ rules:
       owasp: "A05:2021 - Security Misconfiguration"
       cwe: "CWE-798"
     patterns:
-      - pattern-either:
-          - pattern: |
-              $X = { ..., secret: "...", ... }
-          - pattern: password = "..."
+      - pattern-regex: '(?i)(password|secret|api[_-]?key|token)\s*[:=]\s*["''][^"'']{6,}["'']'
